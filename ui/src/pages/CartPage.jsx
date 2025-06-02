@@ -11,7 +11,7 @@ const CartPage = () => {
     useEffect(() => {
         const fetchCart = async () => {
             try {
-                const response = await fetch('/api/profile', {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/profile`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ const CartPage = () => {
 
     const handleQuantityChange = async (productId, quantity) => {
         try {
-            const response = await fetch('/api/cart/update', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/cart/update`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ const CartPage = () => {
 
     const handleRemove = async (productId) => {
         try {
-            const response = await fetch('/api/remove', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/remove`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

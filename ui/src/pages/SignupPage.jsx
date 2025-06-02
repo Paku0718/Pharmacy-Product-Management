@@ -101,7 +101,7 @@ const SignupPage = () => {
     const signupSubmit = async (userDetails) => {
         setIsSubmitting(true);
         try {
-            const res = await fetch("/api/register", {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -370,7 +370,7 @@ const SignupPage = () => {
                                 className="mr-2"
                             />
                             <label htmlFor="terms" className="text-sm text-gray-600">
-                                I accept the <a href="#" className="text-teal-500 hover:underline">Terms and Conditions</a>
+                                I accept the <a href="/terms" className="text-teal-500 hover:underline">Terms and Conditions</a>
                             </label>
                         </div>
                         {formErrors.terms && (

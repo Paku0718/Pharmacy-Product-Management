@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require('cookie-parser');
@@ -10,7 +11,7 @@ const app = express();
 // Middleware
 app.use(
     cors({
-        origin: "http://localhost:3000/",
+        origin: process.env.CLIENT_URL || "http://localhost:3000",
         credentials: true,
     })
 );
@@ -42,7 +43,7 @@ app.use((req, res, next) => {
 console.log("Server connected to MySQL (see earlier logs for confirmation)");
 
 // Start server
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
